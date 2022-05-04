@@ -33,3 +33,6 @@ FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
 GROUP BY gender
 ORDER BY gender;
+
+SELECT AVG(salary), SUM(salary), MIN(salary), MAX(salary)
+FROM salaries
