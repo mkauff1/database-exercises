@@ -35,8 +35,26 @@ INSERT INTO users (name, email, role_id) VALUES
                                         ('anthony', 'anthony@example.com', 2),
                                         ('ry', 'ry@example.com', NULL);
 
+USE join_test_db;
 SELECT u.name AS Name, r.name AS Role
 FROM users AS u
 JOIN roles AS r
 ON u.role_id = r.id;
 
+USE join_test_db;
+SELECT u.name AS Name, r.name AS Role
+FROM users AS u
+         LEFT JOIN roles AS r
+                   ON u.role_id = r.id;
+
+USE join_test_db;
+SELECT u.name AS Name, r.name AS Role
+FROM users AS u
+         RIGHT JOIN roles AS r
+                   ON u.role_id = r.id;
+
+USE join_test_db;
+SELECT u.name AS Name, COUNT(u.name)
+FROM users AS u
+RIGHT JOIN roles AS r ON u.role_id = r.id
+GROUP BY r.name;
